@@ -17,6 +17,10 @@ from sklearn.metrics import (
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+# Resolve base directory
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_DIR = os.path.join(BASE_DIR, "models")
+
 # App title and description
 st.set_page_config(
     page_title="Human Activity Recognition",
@@ -41,16 +45,16 @@ st.write(
 @st.cache_resource
 def load_artifacts():
     models = {
-        "Logistic Regression": joblib.load("models/logistic_regression.pkl"),
-        "Decision Tree": joblib.load("models/decision_tree.pkl"),
-        "K-Nearest Neighbors": joblib.load("models/knn.pkl"),
-        "Naive Bayes": joblib.load("models/naive_bayes.pkl"),
-        "Random Forest": joblib.load("models/random_forest.pkl"),
-        "XGBoost": joblib.load("models/xgboost.pkl"),
+        "Logistic Regression": joblib.load(os.path.join(MODEL_DIR, "logistic_regression.pkl")),
+        "Decision Tree": joblib.load(os.path.join(MODEL_DIR, "decision_tree.pkl")),
+        "K-Nearest Neighbors": joblib.load(os.path.join(MODEL_DIR, "knn.pkl")),
+        "Naive Bayes": joblib.load(os.path.join(MODEL_DIR, "naive_bayes.pkl")),
+        "Random Forest": joblib.load(os.path.join(MODEL_DIR, "random_forest.pkl")),
+        "XGBoost": joblib.load(os.path.join(MODEL_DIR, "xgboost.pkl")),
     }
 
-    scaler = joblib.load("models/scaler.pkl")
-    label_encoder = joblib.load("models/label_encoder.pkl")
+    scaler = joblib.load(os.path.join(MODEL_DIR, "scaler.pkl"))
+    label_encoder = joblib.load(os.path.join(MODEL_DIR, "label_encoder.pkl"))
 
     return models, scaler, label_encoder
 
