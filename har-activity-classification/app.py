@@ -64,6 +64,26 @@ models, scaler, label_encoder = load_artifacts()
 st.success("Models and preprocessing objects loaded successfully.")
 
 # =========================
+# Download Sample Dataset
+# =========================
+
+st.header("Download Sample Test Dataset")
+
+sample_file_path = os.path.join(BASE_DIR, "sample_data", "test.csv")
+
+if os.path.exists(sample_file_path):
+    with open(sample_file_path, "rb") as f:
+        st.download_button(
+            label="Download Sample Test CSV",
+            data=f,
+            file_name="test.csv",
+            mime="text/csv"
+        )
+else:
+    st.warning("Sample dataset not available.")
+
+
+# =========================
 # CSV Upload & Model Selection
 # =========================
 
