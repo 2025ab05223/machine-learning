@@ -16,3 +16,20 @@ from sklearn.metrics import (
 
 import matplotlib.pyplot as plt
 import seaborn as sns
+
+# App title and description
+st.set_page_config(
+    page_title="Human Activity Recognition",
+    layout="wide"
+)
+
+st.title("Human Activity Recognition - Multi-Class Classification")
+st.write(
+    """
+    This application demonstrates multiple machine learning classification models
+    trained on the Human Activity Recognition (HAR) dataset.
+    
+    Upload a test dataset, select a model, and view performance metrics
+    along with the confusion matrix.
+    """
+)
